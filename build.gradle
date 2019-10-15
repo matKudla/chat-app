@@ -5,6 +5,7 @@ plugins {
 group 'com.kudla'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
