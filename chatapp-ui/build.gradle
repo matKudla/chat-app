@@ -1,0 +1,19 @@
+plugins {
+  id 'java'
+  id "com.moowork.node" version "1.2.0"
+}
+
+// 2
+node {
+  version = '12.11.1'
+  npmVersion = '6.11.3'
+  download = true
+}
+
+// 3
+jar.dependsOn 'npm_run_build'
+
+// 4
+jar {
+  from 'dist/chatapp-ui' into 'static'
+}
