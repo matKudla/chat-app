@@ -7,12 +7,18 @@ import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MaterialModule} from './material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthGuard} from './guards/auth.guard';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
+
 
 
 const routes: Routes = [
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  {path : '', component : LoginComponent}
+  { path : '', component : LoginComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
@@ -25,10 +31,13 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { useHash: true }),
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

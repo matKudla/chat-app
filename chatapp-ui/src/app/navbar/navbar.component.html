@@ -8,11 +8,11 @@
     <div class="user">
       <button mat-button>
         <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-        Mateusz
+        {{username}}
       </button>
     </div>
     <div class="logout">
-      <button mat-button>
+      <button (click)="logout()" mat-button>
         <mat-icon class="icon">input</mat-icon>
         Logout
       </button>

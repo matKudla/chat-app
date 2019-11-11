@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ChatService} from './chat.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  value = 'elo';
+
+  constructor(private chatService: ChatService) {
+  }
 
   ngOnInit() {
+    this.chatService.getData().subscribe(value1 => this.value = value1);
   }
 
 }
