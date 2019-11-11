@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AuthenticationService} from '../service/authentication.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+
+  constructor(private authenticationService: AuthenticationService) {
+  }
 
   ngOnInit() {
+   this.authenticationService.currentUser.subscribe(value => this.username = value.username);
   }
+
+  logout() {
+    this.authenticationService.logout();
+  }
+
 
 }
