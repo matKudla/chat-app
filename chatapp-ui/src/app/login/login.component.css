@@ -18,3 +18,15 @@
 button{
   width: 100%;
 }
+
+.loading {
+
+  position: absolute;
+  z-index: 999;
+  overflow: visible;
+  margin: auto;
+  top: 50%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

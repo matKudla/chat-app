@@ -20,7 +20,7 @@
         </tr></table>
     </form>
     <mat-divider></mat-divider>
- <mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+ <mat-spinner color="warn"  diameter=200 class="loading" [style.display]="loading ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions class="button-element">
     <button mat-raised-button  (click)="onSubmit()" color="primary">Login</button>

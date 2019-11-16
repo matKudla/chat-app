@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule, MatIconModule,
+  MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule, MatListModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
@@ -23,7 +23,9 @@ import {
     MatProgressSpinnerModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    ScrollingModule,
+    MatGridListModule
   ],
   exports: [
     MatToolbarModule,
@@ -34,7 +36,9 @@ import {
     MatProgressSpinnerModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    ScrollingModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

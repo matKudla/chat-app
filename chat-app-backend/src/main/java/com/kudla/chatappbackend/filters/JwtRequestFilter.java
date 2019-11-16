@@ -15,23 +15,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
+    private static final String BEARER = "Bearer ";
+    private static final String AUTHORIZATION = "Authorization";
     private final AppUserDetailsService userDetailsService;
     private final JwtUtil jwtUtil;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        final String authorizationHeader = request.getHeader("Authorization");
+        final Optional<String> authorizationHeader = Optional.ofNullable(request.getHeader(AUTHORIZATION));
 
         String username = null;
         String jwt = null;
 
-        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            jwt = authorizationHeader.substring(7);
+        if (authorizationHeader.isPresent() && authorizationHeader.get().startsWith(BEARER)) {
+            jwt = authorizationHeader.get().substring(7);
             username = jwtUtil.extractUsername(jwt);
         }
 

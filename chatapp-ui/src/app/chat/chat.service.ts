@@ -14,6 +14,6 @@ export class ChatService {
 
 
   getData(): Observable<string> {
-    return this.http.get(environment.apiUrl, {responseType: 'text'});
+    return this.http.get(environment.apiUrl + '/api/test', {responseType: 'text'});
   }
 }

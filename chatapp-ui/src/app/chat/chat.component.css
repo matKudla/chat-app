@@ -1,8 +1,42 @@
-.container {
+
+.example-form {
   width: 100%;
-  height: 100%;
 }
 
-.content {
-  width: 20%;
+.example-full-width {
+  width: 100%;
+}
+
+.chat{
+  height: 89%;
+  width: 50%;
+  margin: auto;
+}
+
+.mat-card{
+  display:flex;
+  flex-direction: column;
+}
+
+
+.mat-card-content{
+  flex-grow: 1;
+  overflow: auto;
+}
+
+mat-list {
+  flex-grow: 1;
+  border: 3px;
+  overflow: hidden;
+}
+
+mat-list-item{
+  height: auto;
+  width: 90%;
+}
+
+
+textarea{
+  max-height: 50vh;
+  width: 100%;
 }

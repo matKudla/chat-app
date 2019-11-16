@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/*", "/authenticate").permitAll()
+                .antMatchers("/*", "/authenticate", "/ws/**", "/assets/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 

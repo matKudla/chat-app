@@ -1,0 +1,79 @@
+.avatar{
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  float: right;
+  margin: 0 0 0 10px;
+}
+
+.speech-bubble {
+  max-width: 20em;
+  position: relative;
+  background: #00aabb;
+  border-radius: .4em;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-right-color: #00aabb;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.speech-bubble-other {
+  max-width: 20em;
+  position: relative;
+  background: #596260;
+  border-radius: .4em;
+}
+
+.speech-bubble-other:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 0.594em solid transparent;
+  border-left-color: #596260;
+  border-right: 0;
+  border-top: 0;
+  margin-top: -0.297em;
+  margin-right: -0.594em;
+}
+
+
+.content{
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.item-me{
+  margin: 7px 40px;
+  padding: 5px;
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item-other{
+  margin: 7px 40px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}

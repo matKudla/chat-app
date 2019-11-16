@@ -1,1 +1,22 @@
-<div>Hello {{value}} </div>
+<mat-card class="chat">
+  <mat-card-content id="scroll">
+    <mat-list>
+        <app-message *ngFor="let message of messages" [message]=message [username]="name"></app-message>
+      </mat-list>
+  </mat-card-content>
+  <mat-card>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <span matPrefix>&nbsp;</span>
+        <input [(ngModel)]="message" type=text matInput placeholder="" [ngModelOptions]="{standalone: true}" />
+        <button matSuffix (click)="send()" mat-button>
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+
+
+
+
+

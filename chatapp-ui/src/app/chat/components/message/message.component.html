@@ -1,0 +1,20 @@
+<mat-list-item *ngIf=isMessageType  role="listitem" class="item-me" [className]="isMessageFromMe ? 'item-other' : 'item-me'" >
+  <div  class="row">
+  <div [className]="isMessageFromMe ? 'speech-bubble' : 'speech-bubble-other'" >
+    <div class="content">
+      <div matLine><b>{{message.sender}}</b></div>
+    {{message.content}}
+    </div>
+  </div>
+  <img *ngIf="!isMessageFromMe" src="assets/defaultavatar.png" alt="Avatar"
+       class="avatar">
+  </div>
+</mat-list-item>
+
+<mat-list-item *ngIf=isLeaveType>
+  <h3 matLine> {{message.sender}} Disconnected </h3>
+</mat-list-item>
+
+<mat-list-item *ngIf=isConnectType>
+  <h3 matLine> {{message.sender}} Connected </h3>
+</mat-list-item>

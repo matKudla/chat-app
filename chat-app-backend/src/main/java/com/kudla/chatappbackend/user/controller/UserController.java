@@ -1,7 +1,5 @@
 package com.kudla.chatappbackend.user.controller;
 
-
-
 import com.kudla.chatappbackend.user.model.Dto.AppUserDto;
 import com.kudla.chatappbackend.user.model.Dto.AuthenticationUserRequest;
 import com.kudla.chatappbackend.user.model.Entity.AppUser;

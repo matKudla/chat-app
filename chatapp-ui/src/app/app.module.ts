@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './guards/auth.guard';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
+import {MessageComponent} from './chat/components/message/message.component';
+
 
 
 
 const routes: Routes = [
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path : '', component : LoginComponent},
+  { path : '', component : ChatComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '' }
 ];
 
@@ -26,6 +28,7 @@ const routes: Routes = [
     AppComponent,
     NavbarComponent,
     ChatComponent,
+    MessageComponent,
     LoginComponent
   ],
   imports: [
